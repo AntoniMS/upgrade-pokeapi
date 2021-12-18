@@ -1,13 +1,17 @@
-const baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
-const div$$ =  document.querySelector(".container");
+const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
+const div$$ = document.querySelector(".container");
 
-const allPokemonData = [];
+const catchEmAll = async () => {
+  const pokedex = [];
+  for (let i = 1; i < 152; i++) {
+    const pokedexUrl = baseUrl + [i];
 
-const catchEmAll = () => {
-    for (let i = 1; i < 151; i++) {
-        const pokeUrl = baseUrl + [i];
-    }
-  console.log(pokeUrl)
-}
-    
+    const pokedexRes = await fetch(pokedexUrl);
+    const pokedexJson = await pokedexRes.json();
+
+    pokedex.push(pokedexJson);
+  }
+  console.log(pokedex);
+};
+
 catchEmAll();
