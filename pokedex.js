@@ -4,7 +4,7 @@ const div$$ = document.querySelector(".container");
 const catchEmAll = async () => {
   const pokedex = [];
 
-  for (let i = 1; i <= 26; i++) {
+  for (let i = 1; i <= 151; i++) {
     const pokedexRes = await fetch(baseUrl + i);
     const pokedexJson = await pokedexRes.json();
 
