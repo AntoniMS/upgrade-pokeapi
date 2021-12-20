@@ -4,7 +4,7 @@ const div$$ = document.querySelector(".container");
 const catchEmAll = async () => {
   const pokedex = [];
 
-  for (let i = 1; i <= 151; i++) {
+  for (let i = 1; i <= 42; i++) {
     const pokedexRes = await fetch(baseUrl + i);
     const pokedexJson = await pokedexRes.json();
 
@@ -17,15 +17,15 @@ pokedex.forEach((data) => {
         name: data.name,
         image: data.sprites.other.home["front_default"],
         id: data.id,
-        type: data.types.type,
+        types: data.types[0].type.name,
         weight: data.weight,
         height: data.height,
     }
-    pokemon.push(pokemonData);
-      
+    pokemon.push(pokemonData);   
   }); 
-
   printPokemon(pokemon);
+
+console.log(pokemon)
 };
 
 const printPokemon = (pokemon) => {
@@ -36,9 +36,9 @@ const printPokemon = (pokemon) => {
         <div class="card-frame">
         <img class="card-image" src="${poke.image}"/>
         </div>
-        <div class="info">
-        <h3>Tipo: ${poke.type}</h3>
-        <h3>Peso: ${Math.round(poke.weight*0.1)} kg <br> Altura: ${(poke.height)/10} m</h3>
+        <div class="card-info">
+        <h3>Type: ${poke.types}</h3>
+        <h3>Weight: ${Math.round(poke.weight*0.1)} kg <br> Height: ${(poke.height)/10} m</h3>
         </div>
         </li>`
     )
