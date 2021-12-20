@@ -14,18 +14,22 @@ body {
 .container {
   padding: 25px;
   margin: 0 auto;
+  text-shadow: 4px 3px 7px goldenrod;
 }
 
 h1 {
   text-transform: uppercase;
   text-align: center;
   font-size: 50px;
+  
 }
 
 .card-info{
   text-align: left;
-  font-size: 19px;
+  font-size: 16px;
   border-radius: 20px;
+  letter-spacing: 1.5px; 
+  line-height: 1.4rem;
   background-color:rgba(255, 255, 255, 0.774);
 }
 
@@ -38,7 +42,7 @@ h1 {
   background-color: #ffe8e8ca;
   color: #222;
   text-align: center;
-  border-radius: 50px;
+  border-radius:  70px;
   border: solid 4px black;
   padding: 10px;
   background-image: url("https://www.teahub.io/photos/full/95-956257_pokemon-pixel-wallpaper-ios.png");
@@ -67,7 +71,7 @@ h1 {
     min-height: 222px;
     margin-bottom: 10px;
     padding: 15px;
-    border-radius: 100px;
+    border-radius: 60%;
   border: solid 3px rgb(49, 219, 191);
     justify-content: space-evenly;
     align-content: flex-start;
