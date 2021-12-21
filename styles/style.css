@@ -67,9 +67,6 @@ h1 {
   filter: drop-shadow(16px 15px 12px #222);
   transition: 0.6s;
 }
-.card:hover {
-  border-color: none;
-}
 
 #pokedex {
   width: 100%;

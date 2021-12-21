@@ -6,7 +6,7 @@ const catchEmAll = async () => {
   
   const pokedex = [];
 
-  for (let i = 1; i <= 42; i++) {
+  for (let i = 1; i <= 25; i++) {
     const pokedexRes = await fetch(baseUrl + i);
     const pokedexJson = await pokedexRes.json();
 
@@ -15,27 +15,25 @@ const catchEmAll = async () => {
   }
   const pokemon = [];
   
-    pokedex.forEach((data) => {
+  pokedex.forEach((data) => {
       const pokemonData = {
+        
         id: data.id,
         name: data.name.toUpperCase(),
         image: data.sprites.other.home["front_default"],
-        types: data.types[0].type.name,
+        type: data.types[0].type.name,
         weight: data.weight,
-        height: data.height,
-        
-      };
-
+        height: data.height,    
+      };  
       pokemon.push(pokemonData);
-      
-
+      console.log(pokemonData)
     }
   );
   printPokemon(pokemon);
-
 };
 
 const printPokemon = (pokemon) => {
+  
   const pokeHTML = pokemon
     .map(
       (poke) => `
@@ -46,10 +44,8 @@ const printPokemon = (pokemon) => {
            <img class="card-image" src="${poke.image}"/>
           </div>
           <div class="card-info">
-            <h3>Type: ${poke.types}</h3>
-            <h3>Weight: ${Math.round(poke.weight * 0.1)} kg <br> Height: ${
-        poke.height / 10
-      } m</h3>
+           <img class="typeimg" src="./styles/icons/${poke.type}.png" alt="Imagen Tipo ${poke.type}"/> 
+            <h4>Weight: ${Math.round(poke.weight * 0.1)} kg <br> Height: ${poke.height / 10} m</h4>
           </div>
       </li>`
     )
@@ -57,6 +53,7 @@ const printPokemon = (pokemon) => {
     
   pokedex.innerHTML = pokeHTML;
 };
+
 
 
 catchEmAll();

@@ -25,14 +25,29 @@ h1 {
 }
 
 .card-info{
+  display: flex;
   text-align: left;
+  align-content: center;
   font-size: 18px;
   border-radius: 12px;
   letter-spacing: 1.5px; 
   line-height: 1.4rem;
   background-color:rgba(255, 255, 255, 0.774);
   font-family: Russo One;
+  padding-right: 4px;
+  padding-left: 4px;
+  align-items: center;
+  flex-direction: column;
 }
+
+.typeimg {
+  border-radius: 5px;
+  align-items: center;
+  width:65%;
+  -webkit-filter:grayscale(5px 3px 4px #222);
+  filter: drop-shadow(6px 5px 3px #222);
+}
+
 
 .card {
   list-style: none;
@@ -46,10 +61,11 @@ h1 {
   border-radius:  70px;
   border: solid 4px black;
   padding: 10px;
-  background-image: url("https://www.teahub.io/photos/full/95-956257_pokemon-pixel-wallpaper-ios.png");
+  background-image: url(/styles/img/pokeballcard.png);
   background-size: cover;
   background-position: top;
   transition: box-shadow .9s;
+  
 }
 .card-title {
   text-transform: uppercase;
@@ -76,32 +92,38 @@ h1 {
     min-height: 222px;
     margin-bottom: 10px;
     padding: 15px;
-    border-radius: 65% 35%;
+    border-radius: 35% 70%;
     border: solid 2px black;
     justify-content: space-evenly;
     align-content: flex-start;
-    background-image: url("https://images.squarespace-cdn.com/content/v1/5a9062c27c93279ae6d97e41/1528595258573-5EFCSZIS9FSEL265BJTG/chewsy+pet+rainbow+pet+dog+products.gif?format=2500w");
+    background-image: url(./img/magic.gif);
     background-repeat: 0;
     background-size: cover;
     background-color: #302244;
+    transition: 0.5s;
     
-  
-  
-  
-  
- 
 }
+
+.card-frame:hover {
+  border-radius: 60% 40%;
+  filter: saturate(330%);
+  transition: 0.45s;
+}
+
+
+
 .card-image {
   object-fit: contain;
   width: 95%;
   height: 95%;
   -webkit-filter: drop-shadow(7px 8px 10px #222);
   filter: drop-shadow(16px 15px 12px #222);
-  transition: 0.4s;
+  transition: 0.5s;
+
 }
 .card:hover {
   border-color: goldenrod;
-  box-shadow: 0 0 30px gold;
+  box-shadow: 0 0 50px rgb(143, 255, 249);
   transition: box-shadow .15s;
 }
 
@@ -109,16 +131,22 @@ h1 {
   width: 100%;
   padding-inline-start: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   grid-gap: 38px;
 }
-
 
 .card-image:hover {
   animation: bounce 0.8s linear;
   width: 137%;
-  transition: 0.8;
+  transition: 0.8s;
+  filter: saturate(40%);
+  
+  
+  
 }
+
+
+
 @keyframes bounce {
   20% {
     transform: translateY(-10px);
