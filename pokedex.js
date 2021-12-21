@@ -1,12 +1,14 @@
 const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 const div$$ = document.querySelector(".container");
+const input$$ = document.querySelector(".myinput");
+
 
 
 const catchEmAll = async () => {
   
   const pokedex = [];
 
-  for (let i = 1; i <= 25; i++) {
+  for (let i = 1; i <= 151; i++) {
     const pokedexRes = await fetch(baseUrl + i);
     const pokedexJson = await pokedexRes.json();
 
@@ -14,10 +16,10 @@ const catchEmAll = async () => {
     
   }
   const pokemon = [];
-  
+  console.log(pokemon)
   pokedex.forEach((data) => {
-      const pokemonData = {
-        
+    
+      const pokemonData = { 
         id: data.id,
         name: data.name.toUpperCase(),
         image: data.sprites.other.home["front_default"],
@@ -25,54 +27,60 @@ const catchEmAll = async () => {
         weight: data.weight,
         height: data.height,    
       };  
-      pokemon.push(pokemonData);
-      console.log(pokemonData)
+console.log(pokemon)
+      pokemon.push(pokemonData);  
     }
   );
-  printPokemon(pokemon);
-};
 
-const printPokemon = (pokemon) => {
+  const filteredPokemon = pokemon.filter((data) =>
+  data.name.toLowerCase().includes(input$$.value.toLowerCase()) || data.type.toLowerCase().includes(input$$.value.toLowerCase())
   
-  const pokeHTML = pokemon
+);
+  printPokemon(filteredPokemon);
+
+  };
+  
+  const printPokemon = (pokemon) => {
+    const pokeHTML = pokemon
     .map(
       (poke) => `
       <li class="card">
-          <h1 class="card-title">#${poke.id}</h1>
-          <h2 class="card-title">${poke.name}</h2>
-          <div class="card-frame">
-           <img class="card-image" src="${poke.image}"/>
-          </div>
-          <div class="card-info">
-           <img class="typeimg" src="./styles/icons/${poke.type}.png" alt="Imagen Tipo ${poke.type}"/> 
-            <h4>Weight: ${Math.round(poke.weight * 0.1)} kg <br> Height: ${poke.height / 10} m</h4>
-          </div>
+      <h1 class="card-title">#${poke.id}</h1>
+      <h2 class="card-title">${poke.name}</h2>
+      <div class="card-frame">
+      <img class="card-image" src="${poke.image}"/>
+      </div>
+      <div class="card-info">
+      <img class="typeimg" src="./styles/icons/${poke.type}.png" alt="Imagen Tipo ${poke.type}"/> 
+      <h4>Weight: ${poke.weight / 10} kg <br> Height: ${poke.height / 10} m</h4>
+      </div>
       </li>`
-    )
-    .join("");
+      )
+      //  <img class="typeimg" src="./styles/icons/${poke.type2}.png" alt="Imagen Tipo ${poke.type2}"/> 
+      .join("");
+      
+      pokedex.innerHTML = pokeHTML;
+    };
     
-  pokedex.innerHTML = pokeHTML;
-};
-
-
-
-catchEmAll();
-
-/* //ALTERNATIVA AL .MAP
     
-const pokemon = [];
-pokedex.forEach((data) => {
+    
+    catchEmAll();
+    
+    /* //ALTERNATIVA AL .MAP
+    
+    const pokemon = [];
+    pokedex.forEach((data) => {
     const pokemonData = {
-        name: element.name,
-        id: element.id,
-        image: data.sprites.other.home["front_default"],
+      name: element.name,
+      id: element.id,
+      image: data.sprites.other.home["front_default"],
     }
     pokemon.push(pokemonData);
-      
+    
   }); 
   
   ///////CON MAP
-
+  
   const pokemon = pokedex.map((data) => ({
     name: data.name,
     image: data.sprites.other.home["front_default"],
@@ -81,5 +89,14 @@ pokedex.forEach((data) => {
   
   
   
+         /*  for (let i = 0; i < data.types.length; i++) {
+            if (data.types[1].type.name === true) {
+              type2 = data.types[1];
+            } else {
+              type2 = null;
+            }
+          }
+            console.log(type2); */
   
-  */
+  
+  
