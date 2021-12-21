@@ -1,7 +1,9 @@
 const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 const div$$ = document.querySelector(".container");
 
+
 const catchEmAll = async () => {
+  
   const pokedex = [];
 
   for (let i = 1; i <= 42; i++) {
@@ -9,43 +11,32 @@ const catchEmAll = async () => {
     const pokedexJson = await pokedexRes.json();
 
     pokedex.push(pokedexJson);
+    
   }
-
   const pokemon = [];
-  Promise.all(
+  
     pokedex.forEach((data) => {
       const pokemonData = {
-        name: data.name,
-        image: data.sprites.other.home["front_default"],
         id: data.id,
+        name: data.name.toUpperCase(),
+        image: data.sprites.other.home["front_default"],
         types: data.types[0].type.name,
         weight: data.weight,
         height: data.height,
+        
       };
 
-
-
-      
-  
-      
       pokemon.push(pokemonData);
       
 
-
-
-
-    })
+    }
   );
   printPokemon(pokemon);
-
-
-
-
 
 };
 
 const printPokemon = (pokemon) => {
-  const pokemonHtml = pokemon
+  const pokeHTML = pokemon
     .map(
       (poke) => `
       <li class="card">
@@ -63,8 +54,10 @@ const printPokemon = (pokemon) => {
       </li>`
     )
     .join("");
-  pokedex.innerHTML = pokemonHtml;
+    
+  pokedex.innerHTML = pokeHTML;
 };
+
 
 catchEmAll();
 

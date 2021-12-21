@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Audiowide;
-  color: rgb(255, 231, 96);
+  color: rgb(255, 217, 0);
   background-image: url("https://wallpaperaccess.com/full/1951962.png");
   background-repeat: 0;
   background-size: cover;
@@ -14,23 +14,24 @@ body {
 .container {
   padding: 25px;
   margin: 0 auto;
-  text-shadow: 4px 3px 7px goldenrod;
+  
 }
 
 h1 {
   text-transform: uppercase;
   text-align: center;
   font-size: 50px;
-  
+
 }
 
 .card-info{
   text-align: left;
-  font-size: 16px;
-  border-radius: 20px;
+  font-size: 18px;
+  border-radius: 12px;
   letter-spacing: 1.5px; 
   line-height: 1.4rem;
   background-color:rgba(255, 255, 255, 0.774);
+  font-family: Russo One;
 }
 
 .card {
@@ -48,13 +49,17 @@ h1 {
   background-image: url("https://www.teahub.io/photos/full/95-956257_pokemon-pixel-wallpaper-ios.png");
   background-size: cover;
   background-position: top;
-
+  transition: box-shadow .9s;
 }
 .card-title {
   text-transform: uppercase;
   font-size: 25px;
-  font-weight:700;
+  font-weight:600;
   margin:5px;
+  padding-bottom: 15px;
+  text-shadow: 4px 3px 5px rgb(255, 241, 196);
+  color: gold;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 }
 .card-subtitle {
   font-weight: lighter;
@@ -71,13 +76,18 @@ h1 {
     min-height: 222px;
     margin-bottom: 10px;
     padding: 15px;
-    border-radius: 60%;
-  border: solid 3px rgb(49, 219, 191);
+    border-radius: 65% 35%;
+    border: solid 2px black;
     justify-content: space-evenly;
     align-content: flex-start;
-    background-image: url("https://lh3.googleusercontent.com/5-w5yrCLD69zlOIfgMndRr4dMhrKW5u8nJVojvrUqnSI8ln1ywgqzNFjWQJYrN2YlVSBMHNyXzhcIrQXRPUYTcqJXjAzYbJyXiXb_uK3YO2G-g=rw-e365-w1440");
+    background-image: url("https://images.squarespace-cdn.com/content/v1/5a9062c27c93279ae6d97e41/1528595258573-5EFCSZIS9FSEL265BJTG/chewsy+pet+rainbow+pet+dog+products.gif?format=2500w");
     background-repeat: 0;
-  background-size: cover;
+    background-size: cover;
+    background-color: #302244;
+    
+  
+  
+  
   
  
 }
@@ -91,6 +101,8 @@ h1 {
 }
 .card:hover {
   border-color: goldenrod;
+  box-shadow: 0 0 30px gold;
+  transition: box-shadow .15s;
 }
 
 #pokedex {
