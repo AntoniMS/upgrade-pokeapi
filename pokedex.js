@@ -43,7 +43,7 @@ const printPokemon = (pokemon) => {
     .map(
       (poke) => `
       <li class="card">
-      <h1 class="card-title">#${poke.id}</h1>
+      <h1 class="card-subtitle">#${poke.id}</h1>
       <h2 class="card-title">${poke.name}</h2>
       <div class="card-frame">
       <img class="card-image" src="${poke.image}"/>
