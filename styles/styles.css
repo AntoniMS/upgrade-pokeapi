@@ -170,8 +170,8 @@ h1 {
   transition: 0.5s;
 }
 .card:hover {
-  border-color: rgb(218, 175, 32);
-  box-shadow: 0 0 50px rgb(143, 255, 221);
+  border-color: rgb(42, 42, 42);
+  box-shadow: 0 0 50px rgb(143, 255, 236);
   transition: box-shadow 0.15s;
 }
 

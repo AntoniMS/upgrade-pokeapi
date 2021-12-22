@@ -1,11 +1,10 @@
 const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 const input$$ = document.querySelector(".input");
-const button$$ = document.querySelector(".button");
 
 
 const catchEmAll = async () => {
   const pokedex = [];
-//Hace fetch a la url y la recorre, para seguidamente push a pokedex[].
+
   for (let i = 1; i <= 151; i++) {
 
     const pokedexRes = await fetch(baseUrl + i);
@@ -15,7 +14,7 @@ const catchEmAll = async () => {
   }
 
   const pokemon = [];
-  //Recorro Pokedex y saco las claves que quiera, para seguidamente push a pokemon[].
+  
   pokedex.forEach((data) => {   
     const pokemonData = {
 
@@ -37,7 +36,7 @@ const catchEmAll = async () => {
   );
 
   printPokemon(filteredPokemon);
-  
+  console.log(pokemon);
 };
 
 const printPokemon = (pokemon) => {
@@ -45,7 +44,7 @@ const printPokemon = (pokemon) => {
     .map(
       (poke) => `
       <li class="card">
-          <h1 class="card-subtitle">#${poke.id}</h1>
+          <h1 class="card-subtitle"># ${poke.id}</h1>
           <h2 class="card-title">${poke.name}</h2>
         <div class="card-frame">
           <img class="card-image" src="${poke.image}"/>
@@ -57,7 +56,8 @@ const printPokemon = (pokemon) => {
       </li>`
     )
     .join("");
-  pokedex.innerHTML = pokeHTML;
+
+    document.body.querySelector("#pokedex").innerHTML = pokeHTML;
   
 };
 input$$.addEventListener("input", catchEmAll);
