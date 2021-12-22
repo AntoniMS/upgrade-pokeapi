@@ -1,11 +1,8 @@
 const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 const div$$ = document.querySelector(".container");
-const input$$ = document.querySelector(".myinput");
-
-
+const input$$ = document.querySelector(".input");
 
 const catchEmAll = async () => {
-  
   const pokedex = [];
 
   for (let i = 1; i <= 151; i++) {
@@ -13,35 +10,33 @@ const catchEmAll = async () => {
     const pokedexJson = await pokedexRes.json();
 
     pokedex.push(pokedexJson);
-    
   }
+
   const pokemon = [];
-  console.log(pokemon)
+  console.log(pokemon);
   pokedex.forEach((data) => {
-    
-      const pokemonData = { 
-        id: data.id,
-        name: data.name.toUpperCase(),
-        image: data.sprites.other.home["front_default"],
-        type: data.types[0].type.name,
-        weight: data.weight,
-        height: data.height,    
-      };  
-console.log(pokemon)
-      pokemon.push(pokemonData);  
-    }
+    const pokemonData = {
+      id: data.id,
+      name: data.name,
+      image: data.sprites.other.home["front_default"],
+      type: data.types[0].type.name,
+      weight: data.weight,
+      height: data.height,
+    };
+    console.log(pokemon);
+    pokemon.push(pokemonData);
+  });
+
+  const filteredPokemon = pokemon.filter(
+    (data) =>
+      data.name.toLowerCase().includes(input$$.value.toLowerCase()) ||
+      data.type.toLowerCase().includes(input$$.value.toLowerCase())
   );
-
-  const filteredPokemon = pokemon.filter((data) =>
-  data.name.toLowerCase().includes(input$$.value.toLowerCase()) || data.type.toLowerCase().includes(input$$.value.toLowerCase())
-  
-);
   printPokemon(filteredPokemon);
+};
 
-  };
-  
-  const printPokemon = (pokemon) => {
-    const pokeHTML = pokemon
+const printPokemon = (pokemon) => {
+  const pokeHTML = pokemon
     .map(
       (poke) => `
       <li class="card">
@@ -55,18 +50,16 @@ console.log(pokemon)
       <h4>Weight: ${poke.weight / 10} kg <br> Height: ${poke.height / 10} m</h4>
       </div>
       </li>`
-      )
-      //  <img class="typeimg" src="./styles/icons/${poke.type2}.png" alt="Imagen Tipo ${poke.type2}"/> 
-      .join("");
-      
-      pokedex.innerHTML = pokeHTML;
-    };
-    
-    
-    
-    catchEmAll();
-    
-    /* //ALTERNATIVA AL .MAP
+    )
+    //  <img class="typeimg" src="./styles/icons/${poke.type2}.png" alt="Imagen Tipo ${poke.type2}"/>
+    .join("");
+
+  pokedex.innerHTML = pokeHTML;
+};
+
+catchEmAll();
+
+/* //ALTERNATIVA AL .MAP
     
     const pokemon = [];
     pokedex.forEach((data) => {
@@ -97,6 +90,3 @@ console.log(pokemon)
             }
           }
             console.log(type2); */
-  
-  
-  
