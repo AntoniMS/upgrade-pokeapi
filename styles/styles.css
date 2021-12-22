@@ -147,7 +147,7 @@ h1 {
     rgb(0, 238, 255),
     rgb(255, 176, 86)
   );
-  background-image: url(./img/magic.gif);
+  background-image: url(./img/magic.png);
   background-repeat: 0;
   background-size: cover;
   transition: 0.5s;
