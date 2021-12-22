@@ -7,7 +7,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   backface-visibility: 10%;
-  background-color: rgb(0, 29, 66);
+  
 }
 
 .search {
@@ -45,10 +45,10 @@ body {
 .input {
   font-family: Russo One;
   line-height: 140%;
-  border: 2px goldenrod;
+  border: solid 3px rgb(46, 178, 255);
   border-radius: 10px;
-  background-color: rgba(233, 254, 255, 0.678);
-  border-bottom: 2px solid lightgray;
+  background-color: rgba(205, 241, 255, 0.781);
+  border-bottom: 3px solid rgb(0, 55, 143);
   width: 50%;
   font-size: 30px;
   text-align: center;
@@ -94,7 +94,7 @@ h1 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #ffe8e8ca;
+  
   color: #222;
   text-align: center;
   border-radius: 90px 90px 70px 70px;
@@ -175,7 +175,7 @@ h1 {
   animation: bounce 0.8s linear;
   width: 137%;
   transition: 0.8s;
-  filter: saturate(40%);
+  filter: saturate(45%);
 }
 
 @keyframes bounce {

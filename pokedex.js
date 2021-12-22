@@ -1,11 +1,12 @@
 const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
-const div$$ = document.querySelector(".container");
+
 const input$$ = document.querySelector(".input");
 
 const catchEmAll = async () => {
   const pokedex = [];
 
   for (let i = 1; i <= 151; i++) {
+
     const pokedexRes = await fetch(baseUrl + i);
     const pokedexJson = await pokedexRes.json();
 
@@ -13,9 +14,10 @@ const catchEmAll = async () => {
   }
 
   const pokemon = [];
-  console.log(pokemon);
+
   pokedex.forEach((data) => {
     const pokemonData = {
+
       id: data.id,
       name: data.name,
       image: data.sprites.other.home["front_default"],
@@ -23,7 +25,7 @@ const catchEmAll = async () => {
       weight: data.weight,
       height: data.height,
     };
-    console.log(pokemon);
+
     pokemon.push(pokemonData);
   });
 
@@ -32,6 +34,7 @@ const catchEmAll = async () => {
       data.name.toLowerCase().includes(input$$.value.toLowerCase()) ||
       data.type.toLowerCase().includes(input$$.value.toLowerCase())
   );
+
   printPokemon(filteredPokemon);
 };
 
@@ -46,12 +49,13 @@ const printPokemon = (pokemon) => {
       <img class="card-image" src="${poke.image}"/>
       </div>
       <div class="card-info">
-      <img class="typeimg" src="./styles/icons/${poke.type}.png" alt="Imagen Tipo ${poke.type}"/> 
+      <img class="typeimg" src="./styles/icons/${
+        poke.type
+      }.png" alt="Imagen Tipo ${poke.type}"/> 
       <h4>Weight: ${poke.weight / 10} kg <br> Height: ${poke.height / 10} m</h4>
       </div>
       </li>`
     )
-    //  <img class="typeimg" src="./styles/icons/${poke.type2}.png" alt="Imagen Tipo ${poke.type2}"/>
     .join("");
 
   pokedex.innerHTML = pokeHTML;
