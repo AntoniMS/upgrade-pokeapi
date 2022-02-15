@@ -5,7 +5,7 @@ const input$$ = document.querySelector(".input");
 const catchEmAll = async () => {
   const pokedex = [];
 
-  for (let i = 1; i <= 151; i++) {
+  for (let i = 1; i <= 28; i++) {
 
     const pokedexRes = await fetch(baseUrl + i);
     const pokedexJson = await pokedexRes.json();
